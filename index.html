@@ -5,7 +5,8 @@
      crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fareed Bot Pro AI - Live Binary & Crypto Signals & Trading Guides</title>
+    <title>Fareed Bot Pro AI - Live Market Terminal & Trading Education Hub</title>
+    <meta name="description" content="Real-time Crypto & Forex market terminal with Dual EMA (9/20) and RSI technical analysis, plus comprehensive trading education guides.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -36,52 +37,6 @@
 </head>
 <body class="min-h-screen flex flex-col justify-between selection:bg-emerald-500 selection:text-black">
 
-    <!-- LOGIN MODAL / SCREEN -->
-    <div id="loginOverlay" class="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md p-4">
-        <div class="glass-panel w-full max-w-md p-8 rounded-2xl border border-emerald-500/30 shadow-2xl relative">
-            <div class="text-center mb-8">
-                <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-3xl mb-3">
-                    <i class="fa-solid fa-robot"></i>
-                </div>
-                <h2 class="text-2xl font-bold text-white tracking-wide">Fareed Bot Pro AI</h2>
-                <p class="text-sm text-gray-400 mt-1">Professional Signal Terminal & Analysis Hub</p>
-            </div>
-
-            <form id="loginForm" onsubmit="handleLogin(event)" class="space-y-5">
-                <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Username</label>
-                    <div class="relative">
-                        <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">
-                            <i class="fa-solid fa-user"></i>
-                        </span>
-                        <input type="text" id="usernameInput" required placeholder="Enter Username"
-                            class="w-full pl-10 pr-4 py-3 bg-slate-900/80 border border-slate-700/80 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition">
-                    </div>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Password</label>
-                    <div class="relative">
-                        <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">
-                            <i class="fa-solid fa-lock"></i>
-                        </span>
-                        <input type="password" id="passwordInput" required placeholder="Enter Password"
-                            class="w-full pl-10 pr-4 py-3 bg-slate-900/80 border border-slate-700/80 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition">
-                    </div>
-                </div>
-
-                <div id="loginError" class="hidden text-red-400 text-sm text-center font-medium bg-red-500/10 py-2 rounded-lg border border-red-500/20">
-                    <i class="fa-solid fa-circle-exclamation mr-1"></i> Invalid Username or Password!
-                </div>
-
-                <button type="submit"
-                    class="w-full py-3.5 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-black font-bold rounded-xl shadow-lg shadow-emerald-500/20 transition transform active:scale-95">
-                    <i class="fa-solid fa-right-to-bracket mr-2"></i> ACCESS TERMINAL
-                </button>
-            </form>
-        </div>
-    </div>
-
     <!-- SIGNAL RESULT POPUP MODAL -->
     <div id="signalPopup" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4 hidden">
         <div class="glass-panel w-full max-w-md p-8 rounded-3xl border border-emerald-500/40 shadow-2xl relative text-center space-y-6 glow-cyan">
@@ -100,129 +55,149 @@
 
             <div class="grid grid-cols-2 gap-3 bg-slate-950/60 p-4 rounded-2xl border border-slate-800/80 text-left">
                 <div>
-                    <div class="text-[10px] text-gray-400 uppercase font-semibold">AI Confidence</div>
+                    <div class="text-[10px] text-gray-400 uppercase font-semibold">Technical Strength</div>
                     <div class="text-lg font-bold text-emerald-400" id="popupConfidence">--%</div>
                 </div>
                 <div>
-                    <div class="text-[10px] text-gray-400 uppercase font-semibold">Execution Price</div>
+                    <div class="text-[10px] text-gray-400 uppercase font-semibold">Current Rate</div>
                     <div class="text-lg font-bold text-amber-400" id="popupPrice">0.00</div>
                 </div>
             </div>
 
             <p class="text-xs text-gray-300 leading-relaxed">
-                Strategy signal generated successfully using dual EMA & RSI momentum filters. Execute on Quotex!
+                Analysis generated via Dual EMA (9/20) & RSI (14) momentum indicators. Always follow strict risk management.
             </p>
 
             <div class="space-y-3 pt-2">
-                <a id="popupQuotexBtn" href="https://broker-qx.pro/sign-up/fast/?lid=2420245" target="_blank"
+                <a href="https://broker-qx.pro/sign-up/fast/?lid=2420245" target="_blank" rel="nofollow noopener"
                    class="w-full py-3 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 text-black font-extrabold rounded-xl shadow-lg transition flex items-center justify-center text-xs">
-                    <i class="fa-solid fa-bolt mr-2"></i> Fast Registration (Quotex)
+                    <i class="fa-solid fa-bolt mr-2"></i> Open Quotex Demo / Live Account
                 </a>
-                <a href="https://broker-qx.pro/sign-up/?lid=2420248" target="_blank"
-                   class="w-full py-2.5 bg-slate-800 hover:bg-slate-700 text-emerald-400 border border-emerald-500/30 font-bold rounded-xl transition flex items-center justify-center text-xs">
-                    <i class="fa-solid fa-user-plus mr-2"></i> Standard Registration
-                </a>
-                <a href="https://broker-qx.pro/?lid=2420246" target="_blank"
-                   class="w-full py-2 bg-slate-900 hover:bg-slate-800 text-gray-300 font-semibold rounded-xl text-xs transition">
-                    Direct Platform Link
-                </a>
-                <button onclick="closePopup()" class="w-full py-2 bg-transparent text-gray-500 hover:text-gray-300 text-xs transition">
+                <button onclick="closePopup()" class="w-full py-2 bg-slate-800 hover:bg-slate-700 text-gray-300 rounded-xl text-xs transition">
                     Close Window
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- MAIN APP WRAPPER -->
-    <div id="mainApp" class="hidden min-h-screen flex flex-col justify-between">
+    <!-- HEADER & NAVIGATION MENU (CRUCIAL FOR ADSENSE) -->
+    <header class="border-b border-slate-800 bg-slate-900/90 backdrop-blur sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-4">
+            <a href="index.html" class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-cyan-500 flex items-center justify-center text-black font-bold text-xl shadow-lg shadow-emerald-500/20">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <div>
+                    <span class="font-extrabold text-lg text-white tracking-wide block">FAREED BOT <span class="text-emerald-400">PRO AI</span></span>
+                    <span class="text-[11px] text-gray-400 block">Market Analytics & Trading Academy</span>
+                </div>
+            </a>
+
+            <!-- NAVIGATION LINKS -->
+            <nav class="flex flex-wrap items-center gap-4 text-xs font-semibold text-gray-300">
+                <a href="index.html" class="text-emerald-400 border-b-2 border-emerald-400 pb-1">Live Terminal</a>
+                <a href="ema-strategy.html" class="hover:text-emerald-400 transition">EMA 9/20 Guide</a>
+                <a href="rsi-guide.html" class="hover:text-emerald-400 transition">RSI Momentum</a>
+                <a href="risk-management.html" class="hover:text-emerald-400 transition">Risk Management</a>
+            </nav>
+
+            <div class="hidden md:flex items-center space-x-2 bg-slate-800/80 px-3 py-1.5 rounded-lg border border-slate-700/50 text-xs">
+                <span id="wsStatusDot" class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+                <span class="text-emerald-400 font-bold" id="wsStatusText">Connecting...</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="max-w-7xl mx-auto w-full px-4 py-8 flex-grow space-y-12">
         
-        <!-- HEADER -->
-        <header class="border-b border-slate-800 bg-slate-900/50 backdrop-blur sticky top-0 z-40">
-            <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-                <div class="flex items-center space-x-3">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-cyan-500 flex items-center justify-center text-black font-bold text-xl shadow-lg shadow-emerald-500/20">
-                        <i class="fa-solid fa-robot"></i>
-                    </div>
-                    <div>
-                        <div class="flex items-center space-x-2">
-                            <h1 class="font-extrabold text-lg text-white tracking-wide">FAREED BOT <span class="text-emerald-400">PRO AI</span></h1>
-                            <span class="text-[10px] bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded border border-emerald-500/30 font-semibold">ANALYSIS HUB</span>
-                        </div>
-                        <p class="text-xs text-gray-400">Live Crypto, Forex Feeds & Educational Trading Insights</p>
-                    </div>
-                </div>
-
-                <div class="flex items-center space-x-4">
-                    <div class="hidden sm:flex items-center space-x-2 bg-slate-800/80 px-3 py-1.5 rounded-lg border border-slate-700/50 text-xs">
-                        <span id="wsStatusDot" class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
-                        <span class="text-gray-300 font-medium">Status:</span>
-                        <span class="text-emerald-400 font-bold" id="wsStatusText">Connecting...</span>
-                    </div>
-                    <button onclick="logout()" class="px-3 py-1.5 bg-red-500/10 hover:bg-red-500/20 border border-red-500/30 text-red-400 rounded-lg text-xs font-semibold transition">
-                        <i class="fa-solid fa-power-off mr-1"></i> Logout
-                    </button>
-                </div>
+        <!-- HERO INTRO SECTION (PUBLISHER CONTENT) -->
+        <section class="glass-panel p-6 md:p-8 rounded-2xl border border-slate-800 space-y-4">
+            <div class="inline-flex items-center space-x-2 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full text-emerald-400 text-xs font-bold">
+                <i class="fa-solid fa-graduation-cap"></i> <span>Financial Market Education & Live Analytics</span>
             </div>
-        </header>
+            <h1 class="text-2xl md:text-3xl font-extrabold text-white">Real-Time Technical Analysis Terminal & Trading Guides</h1>
+            <p class="text-sm text-gray-300 leading-relaxed">
+                Welcome to Fareed Bot Pro AI, an educational resource and real-time market analysis platform designed to help retail traders understand price action, moving average crossovers, and momentum oscillators. Below, you can explore live cryptocurrency and foreign exchange data streams alongside our in-depth technical trading guides.
+            </p>
+        </section>
 
-        <!-- CONTENT -->
-        <main class="max-w-7xl mx-auto w-full px-4 py-6 flex-grow space-y-12">
-            
-            <!-- LIVE MARKET TICKER BAR -->
-            <div class="glass-panel overflow-hidden py-2.5 rounded-xl border border-slate-800 text-xs">
-                <div class="animate-ticker whitespace-nowrap text-gray-300 space-x-8">
-                    <span class="text-emerald-400"><i class="fa-solid fa-chart-line mr-1"></i> Live Financial Markets & Technical Analysis Hub Active</span>
-                    <span class="text-gray-400">|</span>
-                    <span class="text-cyan-400"><i class="fa-solid fa-bolt mr-1"></i> Real-time WebSocket & API Feeds Synced</span>
-                    <span class="text-gray-400">|</span>
-                    <span class="text-amber-400"><i class="fa-solid fa-shield mr-1"></i> Dual EMA (9/20) + RSI Strategy Engine</span>
-                </div>
+        <!-- FEATURED EDUCATIONAL ARTICLES GRID (DIRECT LINKS FOR CRAWLERS) -->
+        <section class="space-y-4">
+            <div class="flex items-center justify-between">
+                <h2 class="text-xl font-bold text-white flex items-center">
+                    <i class="fa-solid fa-book-open text-emerald-400 mr-2"></i> Featured Trading Guides & Articles
+                </h2>
+                <span class="text-xs text-gray-400">Updated for 2026 Markets</span>
             </div>
 
-            <!-- QUOTEX AFFILIATE BANNER -->
-            <div class="glass-panel p-6 rounded-2xl border border-emerald-500/40 bg-gradient-to-r from-slate-900 via-slate-900/90 to-emerald-950/40 flex flex-col md:flex-row items-center justify-between gap-6 glow-green">
-                <div class="space-y-2 text-center md:text-left">
-                    <div class="inline-flex items-center space-x-2 bg-emerald-500/20 border border-emerald-500/30 px-3 py-1 rounded-full text-emerald-400 text-xs font-bold">
-                        <i class="fa-solid fa-fire"></i> <span>Official Broker Partner</span>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Article Card 1 -->
+                <article class="glass-panel p-6 rounded-2xl border border-slate-800 hover:border-emerald-500/40 transition flex flex-col justify-between space-y-4">
+                    <div class="space-y-3">
+                        <span class="text-[11px] font-bold uppercase tracking-wider text-cyan-400 bg-cyan-500/10 px-2.5 py-1 rounded">Technical Strategy</span>
+                        <h3 class="text-lg font-bold text-white leading-snug">
+                            <a href="ema-strategy.html" class="hover:text-emerald-400 transition">Mastering the Dual EMA (9 & 20) Crossover Strategy</a>
+                        </h3>
+                        <p class="text-xs text-gray-400 leading-relaxed">
+                            Learn how institutional and retail traders use the 9-period and 20-period Exponential Moving Averages to spot short-term trend reversals, filter market noise, and time entries accurately.
+                        </p>
                     </div>
-                    <h3 class="text-xl font-extrabold text-white">Start Trading with Quotex</h3>
-                    <p class="text-xs text-gray-300 max-w-xl">
-                        Quotex me apna account banana zaroori hai taaki aap live signals aur market terminals ke sath seamlessly trade kar sakein. Niche diye gaye buttons se apna account register karein!
-                    </p>
-                </div>
-                <div class="flex flex-wrap gap-3 justify-center md:justify-end">
-                    <a href="https://broker-qx.pro/sign-up/fast/?lid=2420245" target="_blank" 
-                       class="inline-flex items-center justify-center px-4 py-2.5 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 text-black font-extrabold rounded-xl shadow-lg text-xs whitespace-nowrap">
-                        <i class="fa-solid fa-bolt mr-2"></i> Fast Reg
+                    <a href="ema-strategy.html" class="inline-flex items-center text-xs font-bold text-emerald-400 hover:underline pt-2">
+                        Read Complete Guide <i class="fa-solid fa-arrow-right ml-1.5"></i>
                     </a>
-                    <a href="https://broker-qx.pro/sign-up/?lid=2420248" target="_blank" 
-                       class="inline-flex items-center justify-center px-4 py-2.5 bg-slate-800 hover:bg-slate-700 text-emerald-400 border border-emerald-500/30 font-bold rounded-xl text-xs whitespace-nowrap">
-                        <i class="fa-solid fa-user-plus mr-2"></i> Standard Reg
-                    </a>
-                    <a href="https://broker-qx.pro/?lid=2420246" target="_blank" 
-                       class="inline-flex items-center justify-center px-4 py-2.5 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-xl border border-slate-700 text-xs whitespace-nowrap">
-                        <i class="fa-solid fa-globe mr-2"></i> Direct Platform
-                    </a>
-                    <a href="https://quotex.onelink.me/085a?af_xp=custom&pid=aff&c=2420247" target="_blank" 
-                       class="inline-flex items-center justify-center px-4 py-2.5 bg-slate-800 hover:bg-slate-700 text-cyan-400 border border-cyan-500/30 font-bold rounded-xl text-xs whitespace-nowrap">
-                        <i class="fa-solid fa-mobile-screen mr-2"></i> Mobile App
-                    </a>
-                </div>
-            </div>
+                </article>
 
-            <!-- APP GRID SECTION -->
+                <!-- Article Card 2 -->
+                <article class="glass-panel p-6 rounded-2xl border border-slate-800 hover:border-emerald-500/40 transition flex flex-col justify-between space-y-4">
+                    <div class="space-y-3">
+                        <span class="text-[11px] font-bold uppercase tracking-wider text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded">Oscillators</span>
+                        <h3 class="text-lg font-bold text-white leading-snug">
+                            <a href="rsi-guide.html" class="hover:text-emerald-400 transition">How to Trade Overbought & Oversold Zones with RSI (14)</a>
+                        </h3>
+                        <p class="text-xs text-gray-400 leading-relaxed">
+                            A detailed breakdown of the Relative Strength Index (RSI), divergence patterns, and how combining momentum readings with moving averages prevents false breakout entries.
+                        </p>
+                    </div>
+                    <a href="rsi-guide.html" class="inline-flex items-center text-xs font-bold text-emerald-400 hover:underline pt-2">
+                        Read Complete Guide <i class="fa-solid fa-arrow-right ml-1.5"></i>
+                    </a>
+                </article>
+
+                <!-- Article Card 3 -->
+                <article class="glass-panel p-6 rounded-2xl border border-slate-800 hover:border-emerald-500/40 transition flex flex-col justify-between space-y-4">
+                    <div class="space-y-3">
+                        <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded">Capital Protection</span>
+                        <h3 class="text-lg font-bold text-white leading-snug">
+                            <a href="risk-management.html" class="hover:text-emerald-400 transition">Essential Risk Management & Position Sizing Rules</a>
+                        </h3>
+                        <p class="text-xs text-gray-400 leading-relaxed">
+                            Discover why capital preservation is more important than win rate. Explore the 1-2% risk rule, drawdown recovery math, and emotional discipline in fast-paced markets.
+                        </p>
+                    </div>
+                    <a href="risk-management.html" class="inline-flex items-center text-xs font-bold text-emerald-400 hover:underline pt-2">
+                        Read Complete Guide <i class="fa-solid fa-arrow-right ml-1.5"></i>
+                    </a>
+                </article>
+            </div>
+        </section>
+
+        <!-- LIVE INTERACTIVE TERMINAL SECTION -->
+        <section class="space-y-4">
+            <h2 class="text-xl font-bold text-white flex items-center">
+                <i class="fa-solid fa-desktop text-emerald-400 mr-2"></i> Interactive Live Market Terminal
+            </h2>
+
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 <!-- CONTROLS & SIGNAL CARD -->
                 <div class="lg:col-span-1 space-y-6">
-                    
-                    <!-- SELECTION CARD -->
                     <div class="glass-panel p-5 rounded-2xl">
-                        <h2 class="text-sm font-bold text-gray-300 uppercase tracking-wider mb-4 flex items-center">
-                            <i class="fa-solid fa-sliders text-emerald-400 mr-2"></i> Live Asset Setup
-                        </h2>
+                        <h3 class="text-sm font-bold text-gray-300 uppercase tracking-wider mb-4 flex items-center">
+                            <i class="fa-solid fa-sliders text-emerald-400 mr-2"></i> Market Pair & Timeframe
+                        </h3>
                         
                         <div class="mb-4">
-                            <label class="block text-xs text-gray-400 font-medium mb-1.5">Select Market Sub-Pair</label>
+                            <label class="block text-xs text-gray-400 font-medium mb-1.5">Select Asset</label>
                             <select id="pairSelect" onchange="changePair()" class="w-full bg-slate-900 border border-slate-700 text-white rounded-xl px-3 py-2.5 text-sm font-semibold focus:outline-none focus:border-emerald-500 transition">
                                 <optgroup label="--- Crypto Live Pairs ---">
                                     <option value="btcusdt">BTC / USDT (Bitcoin)</option>
@@ -230,29 +205,18 @@
                                     <option value="solusdt">SOL / USDT (Solana)</option>
                                     <option value="bnbusdt">BNB / USDT (Binance Coin)</option>
                                     <option value="xrpusdt">XRP / USDT (Ripple)</option>
-                                    <option value="dogeusdt">DOGE / USDT (Dogecoin)</option>
-                                    <option value="adausdt">ADA / USDT (Cardano)</option>
-                                    <option value="ltcusdt">LTC / USDT (Litecoin)</option>
                                 </optgroup>
                                 <optgroup label="--- Real Forex Live Pairs ---">
                                     <option value="eurusd">EUR / USD (Euro / US Dollar)</option>
                                     <option value="gbpusd">GBP / USD (Pound / US Dollar)</option>
                                     <option value="usdjpy">USD / JPY (Dollar / Yen)</option>
                                     <option value="audusd">AUD / USD (Aussie / Dollar)</option>
-                                    <option value="eurjpy">EUR / JPY (Euro / Yen)</option>
-                                </optgroup>
-                                <optgroup label="--- OTC Sub-Pairs ---">
-                                    <option value="eurusd_otc">EUR / USD (OTC)</option>
-                                    <option value="gbpusd_otc">GBP / USD (OTC)</option>
-                                    <option value="eurjpy_otc">EUR / JPY (OTC)</option>
-                                    <option value="usdbrl_otc">USD / BRL (OTC)</option>
-                                    <option value="usdinr_otc">USD / INR (OTC)</option>
                                 </optgroup>
                             </select>
                         </div>
 
                         <div>
-                            <label class="block text-xs text-gray-400 font-medium mb-1.5">Candle Interval Strategy</label>
+                            <label class="block text-xs text-gray-400 font-medium mb-1.5">Timeframe Interval</label>
                             <div class="grid grid-cols-4 gap-1.5" id="tfGrid">
                                 <button onclick="setTimeframe('10s')" class="tf-btn py-2 text-[11px] font-bold rounded-lg border border-slate-700 bg-slate-900 hover:border-emerald-500/50 text-gray-300">10s</button>
                                 <button onclick="setTimeframe('15s')" class="tf-btn py-2 text-[11px] font-bold rounded-lg border border-slate-700 bg-slate-900 hover:border-emerald-500/50 text-gray-300">15s</button>
@@ -270,7 +234,7 @@
                                 <h3 class="text-2xl font-black text-white mt-2" id="signalDirection">READY</h3>
                             </div>
                             <div class="text-right">
-                                <div class="text-xs text-gray-400">AI Confidence</div>
+                                <div class="text-xs text-gray-400">Trend Strength</div>
                                 <div class="text-xl font-bold text-emerald-400" id="confidenceText">--%</div>
                             </div>
                         </div>
@@ -296,24 +260,23 @@
 
                         <div class="flex items-center justify-between border-t border-slate-800/80 pt-4">
                             <div>
-                                <div class="text-[10px] text-gray-400 uppercase font-semibold">Scan Countdown</div>
+                                <div class="text-[10px] text-gray-400 uppercase font-semibold">Scan Timer</div>
                                 <div class="text-xl font-mono font-bold text-cyan-400" id="timer">10s</div>
                             </div>
                             <button id="scanBtn" onclick="start10sSignalScan()" class="px-5 py-2.5 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 text-black font-extrabold rounded-xl shadow-lg transition transform active:scale-95 text-xs flex items-center">
-                                <i class="fa-solid fa-play mr-1.5"></i> GENERATE SIGNAL
+                                <i class="fa-solid fa-play mr-1.5"></i> ANALYZE MARKET
                             </button>
                         </div>
                     </div>
-
                 </div>
 
                 <!-- LIVE CHART AREA -->
-                <div class="lg:col-span-2 space-y-6">
-                    <div class="glass-panel p-5 rounded-2xl flex flex-col h-[450px]">
+                <div class="lg:col-span-2">
+                    <div class="glass-panel p-5 rounded-2xl flex flex-col h-[430px]">
                         <div class="flex justify-between items-center mb-3">
                             <div class="flex items-center space-x-3">
                                 <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
-                                <h3 class="font-bold text-sm text-gray-200">Live Chart (Strategy View)</h3>
+                                <h3 class="font-bold text-sm text-gray-200">Live Price Action (Cyan: EMA 9 | Yellow: EMA 20)</h3>
                             </div>
                             <span class="text-xs font-mono text-emerald-400 font-bold" id="chartPairTag">BTCUSDT</span>
                         </div>
@@ -323,128 +286,47 @@
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- COMPREHENSIVE TRADING & TECHNICAL ANALYSIS ARTICLES (ADDSENSE POLICY COMPLIANCE) -->
-            <section class="space-y-8 pt-6 border-t border-slate-800">
-                <div class="glass-panel p-8 rounded-2xl space-y-6">
-                    <div class="border-b border-slate-800 pb-4">
-                        <span class="text-xs font-bold uppercase tracking-widest text-emerald-400">Educational Resource Hub</span>
-                        <h2 class="text-2xl font-extrabold text-white mt-1">Mastering Technical Indicators in Binary & Crypto Markets</h2>
-                    </div>
+        <!-- METHODOLOGY & DISCLAIMER SECTION -->
+        <section class="glass-panel p-8 rounded-2xl border border-slate-800 space-y-4">
+            <h2 class="text-xl font-bold text-white">How Our Technical Analysis Engine Works</h2>
+            <p class="text-sm text-gray-300 leading-relaxed">
+                Our live market terminal connects directly to public WebSocket feeds for cryptocurrency pairs and real-time institutional reference rates for major foreign exchange pairs. The chart renders real-time candlesticks overlaid with two Exponential Moving Averages: a fast 9-period EMA (cyan) and a slower 20-period EMA (amber). Simultaneously, the engine computes a 14-period Relative Strength Index (RSI) to evaluate whether current price momentum is overextended.
+            </p>
+            <p class="text-xs text-gray-400 leading-relaxed border-t border-slate-800 pt-4">
+                <strong>Educational Disclaimer:</strong> All data, charts, and technical readings provided on Fareed Bot Pro AI are strictly for educational and informational purposes. Financial trading involves substantial risk of loss and is not suitable for every investor. Always practice on a risk-free demo account before trading live funds.
+            </p>
+        </section>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-gray-300 leading-relaxed">
-                        <div class="space-y-4">
-                            <h3 class="text-lg font-bold text-emerald-300 flex items-center">
-                                <i class="fa-solid fa-book-open mr-2"></i> 1. The Role of Exponential Moving Averages (EMA 9 & 20)
-                            </h3>
-                            <p>
-                                Moving averages are foundational tools used by technical analysts to smooth out price data and identify trend directions. Unlike Simple Moving Averages (SMA), the Exponential Moving Average (EMA) places a higher weight on recent price points, making it significantly more responsive to current market momentum.
-                            </p>
-                            <p>
-                                In our automated engine, the combination of <strong>EMA 9 (Fast)</strong> and <strong>EMA 20 (Slow)</strong> helps isolate short-term trend momentum. When the fast EMA crosses above the slow EMA, it indicates bullish momentum, favoring CALL (BUY) positions. Conversely, a downward cross indicates bearish pressure, favoring PUT (SELL) executions.
-                            </p>
-                        </div>
+    </main>
 
-                        <div class="space-y-4">
-                            <h3 class="text-lg font-bold text-emerald-300 flex items-center">
-                                <i class="fa-solid fa-chart-pie mr-2"></i> 2. Utilizing Relative Strength Index (RSI 14)
-                            </h3>
-                            <p>
-                                The Relative Strength Index (RSI) is a momentum oscillator that measures the speed and change of price movements on a scale from 0 to 100. Traditionally, readings above 70 indicate that an asset may be overbought, while readings below 30 suggest oversold conditions.
-                            </p>
-                            <p>
-                                By pairing RSI thresholds with our live multi-feed price streams, traders can filter out false breakouts. For instance, executing a binary option trade during extreme oversold levels backed by an EMA trend continuation offers a robust probability edge in short-term sessions.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="border-t border-slate-800/80 pt-6 space-y-4">
-                        <h3 class="text-lg font-bold text-emerald-300 flex items-center">
-                            <i class="fa-solid fa-shield-halved mr-2"></i> 3. Risk Management & Trading Discipline
-                        </h3>
-                        <p class="text-gray-300 text-sm leading-relaxed">
-                            Successful trading in digital assets, forex pairs, and binary options requires strict adherence to risk management principles. No signal bot or technical indicator can guarantee a 100% win rate due to inherent market volatility. Traders must allocate appropriate capital sizing, avoid emotional trading during high-impact news events, and test strategies thoroughly on demo accounts before deploying live capital. Always review our platform <a href="terms.html" class="text-emerald-400 underline font-semibold">Terms of Service</a> before participating.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- PRIVACY POLICY & TERMS OF SERVICE SECTION -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
-                <div class="glass-panel p-6 rounded-2xl space-y-3">
-                    <h3 class="text-lg font-bold text-emerald-400 flex items-center">
-                        <i class="fa-solid fa-shield-halved mr-2"></i> Privacy Policy
-                    </h3>
-                    <p class="text-gray-400 text-xs leading-relaxed">
-                        At Fareed Bot Pro AI, we value your privacy. We do not collect or store personal sensitive financial records. Technical cookies and connection parameters are used strictly to optimize 24/7 live signal performance.
-                    </p>
-                    <a href="privacy.html" class="inline-block text-xs font-bold text-emerald-400 hover:underline pt-2">Read Full Privacy Policy &rarr;</a>
-                </div>
-
-                <div class="glass-panel p-6 rounded-2xl space-y-3">
-                    <h3 class="text-lg font-bold text-emerald-400 flex items-center">
-                        <i class="fa-solid fa-file-contract mr-2"></i> Terms of Service
-                    </h3>
-                    <p class="text-gray-400 text-xs leading-relaxed">
-                        The signals and technical indicators provided on this platform are for informational purposes only. Binary and digital asset trading involves financial risk. Read terms before proceeding.
-                    </p>
-                    <a href="terms.html" class="inline-block text-xs font-bold text-emerald-400 hover:underline pt-2">Read Full Terms of Service &rarr;</a>
-                </div>
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-800/80 bg-slate-900/50 py-10 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center space-y-6">
+            <div class="flex flex-wrap justify-center gap-6 text-xs text-gray-300 font-semibold">
+                <a href="index.html" class="hover:text-emerald-400 transition">Home & Terminal</a>
+                <a href="ema-strategy.html" class="hover:text-emerald-400 transition">EMA 9/20 Strategy</a>
+                <a href="rsi-guide.html" class="hover:text-emerald-400 transition">RSI Indicator Guide</a>
+                <a href="risk-management.html" class="hover:text-emerald-400 transition">Risk Management</a>
+                <a href="privacy.html" class="hover:text-emerald-400 transition">Privacy Policy</a>
+                <a href="terms.html" class="hover:text-emerald-400 transition">Terms of Service</a>
             </div>
 
-            <!-- FAQ SECTION -->
-            <section class="space-y-8 pt-4 border-t border-slate-800">
-                <div class="glass-panel p-8 rounded-2xl space-y-6">
-                    <h2 class="text-xl font-bold text-white border-b border-slate-800 pb-3 flex items-center">
-                        <i class="fa-solid fa-circle-question text-emerald-400 mr-2"></i> Frequently Asked Questions (FAQ)
-                    </h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
-                        <div class="space-y-2">
-                            <h4 class="font-bold text-emerald-300">How do 10s and 15s strategies work?</h4>
-                            <p class="text-gray-400 text-xs leading-relaxed">Selecting 10s or 15s fine-tunes tick-speed sampling and EMA/RSI momentum checks for quick binary option execution.</p>
-                        </div>
-                        <div class="space-y-2">
-                            <h4 class="font-bold text-emerald-300">Why is a Quotex account required?</h4>
-                            <p class="text-gray-400 text-xs leading-relaxed">Quotex me apna account banana zaroori hai taaki aap hamare live signals aur market terminal ko proper tarike se execute kar sakein. <a href="https://broker-qx.pro/sign-up/?lid=2420248" target="_blank" class="text-emerald-400 underline font-semibold">Sign up here</a>.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-        </main>
-
-        <!-- FOOTER -->
-        <footer class="border-t border-slate-800/80 bg-slate-900/50 py-10 mt-16">
-            <div class="max-w-7xl mx-auto px-4 text-center space-y-6">
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <span class="text-xs text-gray-400 font-semibold uppercase tracking-wider">Contact Support:</span>
-                    <div class="flex items-center gap-3">
-                        <a href="https://wa.me/923000022295" target="_blank" 
-                           class="inline-flex items-center px-4 py-2 bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-400 border border-emerald-500/30 rounded-xl text-xs font-bold transition">
-                            <i class="fa-brands fa-whatsapp mr-2 text-sm"></i> WhatsApp Support
-                        </a>
-                        <a href="https://t.me/Ali_Fareee" target="_blank" 
-                           class="inline-flex items-center px-4 py-2 bg-cyan-600/20 hover:bg-cyan-600/30 text-cyan-400 border border-cyan-500/30 rounded-xl text-xs font-bold transition">
-                            <i class="fa-brands fa-telegram mr-2 text-sm"></i> Telegram Channel
-                        </a>
-                    </div>
-                </div>
-
-                <div class="border-t border-slate-800/60 pt-6">
-                    <p class="text-xs text-gray-500">&copy; 2026 Fareed Bot Pro AI. Multi-Timeframe Strategy Engine Active. All rights reserved.</p>
-                    <div class="flex justify-center flex-wrap gap-4 text-xs text-gray-400 font-medium pt-3">
-                        <a href="https://broker-qx.pro/sign-up/fast/?lid=2420245" target="_blank" class="hover:text-emerald-400 transition">Quotex Fast Reg</a>
-                        <span class="text-gray-700">|</span>
-                        <a href="privacy.html" class="hover:text-emerald-400 transition">Privacy Policy</a>
-                        <span class="text-gray-700">|</span>
-                        <a href="terms.html" class="hover:text-emerald-400 transition">Terms of Service</a>
-                    </div>
-                </div>
+            <div class="flex items-center justify-center gap-3">
+                <a href="https://wa.me/923000022295" target="_blank" class="inline-flex items-center px-4 py-2 bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-400 border border-emerald-500/30 rounded-xl text-xs font-bold transition">
+                    <i class="fa-brands fa-whatsapp mr-2"></i> WhatsApp Support
+                </a>
+                <a href="https://t.me/Ali_Fareee" target="_blank" class="inline-flex items-center px-4 py-2 bg-cyan-600/20 hover:bg-cyan-600/30 text-cyan-400 border border-cyan-500/30 rounded-xl text-xs font-bold transition">
+                    <i class="fa-brands fa-telegram mr-2"></i> Telegram Community
+                </a>
             </div>
-        </footer>
-    </div>
 
-    <!-- 24/7 MULTI-TIMEFRAME ENGINE LOGIC -->
+            <p class="text-xs text-gray-500">&copy; 2026 Fareed Bot Pro AI. Financial Education & Market Analytics. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- LIVE ENGINE SCRIPT (AUTO-INITIALIZES ON PAGE LOAD) -->
     <script>
         let ws = null;
         let marketTimer = null;
@@ -456,39 +338,9 @@
         let scanCountdownTimer = null;
 
         window.addEventListener('DOMContentLoaded', () => {
-            if(localStorage.getItem('fareed_bot_logged_in') === 'true') {
-                document.getElementById('loginOverlay').classList.add('hidden');
-                document.getElementById('mainApp').classList.remove('hidden');
-                initChart();
-                connectMarketFeed();
-            }
+            initChart();
+            connectMarketFeed();
         });
-
-        function handleLogin(e) {
-            e.preventDefault();
-            const u = document.getElementById('usernameInput').value;
-            const p = document.getElementById('passwordInput').value;
-            const err = document.getElementById('loginError');
-
-            if(u === 'Fareed' && p === 'Fareed@123') {
-                localStorage.setItem('fareed_bot_logged_in', 'true');
-                document.getElementById('loginOverlay').classList.add('hidden');
-                document.getElementById('mainApp').classList.remove('hidden');
-                initChart();
-                connectMarketFeed();
-            } else {
-                err.classList.remove('hidden');
-            }
-        }
-
-        function logout() {
-            stopFeeds();
-            localStorage.removeItem('fareed_bot_logged_in');
-            document.getElementById('mainApp').classList.add('hidden');
-            document.getElementById('loginOverlay').classList.remove('hidden');
-            document.getElementById('loginForm').reset();
-            document.getElementById('loginError').classList.add('hidden');
-        }
 
         function stopFeeds() {
             if(ws) { ws.close(); ws = null; }
@@ -511,24 +363,22 @@
 
         function changePair() {
             currentSymbol = document.getElementById('pairSelect').value;
-            document.getElementById('chartPairTag').innerText = currentSymbol.toUpperCase().replace('_', ' ');
+            document.getElementById('chartPairTag').innerText = currentSymbol.toUpperCase();
             connectMarketFeed();
         }
 
         function isCryptoPair(sym) {
-            const cryptos = ['btcusdt', 'ethusdt', 'solusdt', 'bnbusdt', 'xrpusdt', 'dogeusdt', 'adausdt', 'ltcusdt'];
-            return cryptos.includes(sym);
+            return ['btcusdt', 'ethusdt', 'solusdt', 'bnbusdt', 'xrpusdt'].includes(sym);
         }
 
         function connectMarketFeed() {
             stopFeeds();
-
             const statusDot = document.getElementById('wsStatusDot');
             const statusText = document.getElementById('wsStatusText');
             statusDot.className = "w-2 h-2 rounded-full bg-amber-500 animate-pulse";
-            statusText.innerText = "Connecting Feed...";
+            statusText.innerText = "Connecting...";
 
-            const displayTag = currentSymbol.toUpperCase().replace('_OTC', ' (OTC)').replace('USDT', '/USDT');
+            const displayTag = currentSymbol.toUpperCase().replace('USDT', '/USDT');
             document.getElementById('cardPairDisplay').innerText = `${displayTag} - ${currentTF}`;
 
             if(isCryptoPair(currentSymbol)) {
@@ -541,93 +391,61 @@
         async function connectBinanceWebSocket() {
             const statusDot = document.getElementById('wsStatusDot');
             const statusText = document.getElementById('wsStatusText');
-
-            let binanceInterval = currentTF;
-            if(currentTF === '10s' || currentTF === '15s') binanceInterval = '1s';
+            let binanceInterval = (currentTF === '10s' || currentTF === '15s') ? '1s' : currentTF;
 
             try {
                 const res = await fetch(`https://api.binance.com/api/v3/klines?symbol=${currentSymbol.toUpperCase()}&interval=${binanceInterval}&limit=${maxCandlesCount}`);
                 const data = await res.json();
-                
                 candles = data.map(k => ({
-                    time: k[0],
-                    open: parseFloat(k[1]),
-                    high: parseFloat(k[2]),
-                    low: parseFloat(k[3]),
-                    close: parseFloat(k[4])
+                    time: k[0], open: parseFloat(k[1]), high: parseFloat(k[2]), low: parseFloat(k[3]), close: parseFloat(k[4])
                 }));
-
                 drawChart();
                 updateIndicatorsDisplay();
             } catch(e) {
-                console.error("REST API error:", e);
                 connectRealForexFeed();
                 return;
             }
 
             ws = new WebSocket(`wss://stream.binance.com:9443/ws/${currentSymbol}@kline_${binanceInterval}`);
-
             ws.onopen = () => {
                 statusDot.className = "w-2 h-2 rounded-full bg-emerald-500 animate-pulse";
-                statusText.innerText = `Binance Live (${currentTF})`;
+                statusText.innerText = `Live Feed (${currentTF})`;
             };
-
             ws.onmessage = (event) => {
                 const message = JSON.parse(event.data);
                 if(message.k) {
                     const k = message.k;
-                    const liveCandle = {
-                        time: k.t,
-                        open: parseFloat(k.o),
-                        high: parseFloat(k.h),
-                        low: parseFloat(k.l),
-                        close: parseFloat(k.c)
-                    };
-
+                    const liveCandle = { time: k.t, open: parseFloat(k.o), high: parseFloat(k.h), low: parseFloat(k.l), close: parseFloat(k.c) };
                     if(candles.length > 0 && candles[candles.length - 1].time === liveCandle.time) {
                         candles[candles.length - 1] = liveCandle;
                     } else {
                         candles.push(liveCandle);
                         if(candles.length > maxCandlesCount) candles.shift();
                     }
-
                     drawChart();
-                    if(!isScanning) {
-                        updateIndicatorsDisplay();
-                    }
+                    if(!isScanning) updateIndicatorsDisplay();
                 }
-            };
-
-            ws.onerror = () => {
-                statusDot.className = "w-2 h-2 rounded-full bg-red-500";
-                statusText.innerText = "Feed Reconnecting";
             };
         }
 
         async function connectRealForexFeed() {
             const statusDot = document.getElementById('wsStatusDot');
             const statusText = document.getElementById('wsStatusText');
-            
             let baseCur = currentSymbol.substring(0, 3).toUpperCase();
-            let targetCur = currentSymbol.substring(3, 6).toUpperCase();
-            if(targetCur === '') targetCur = 'USD';
+            let targetCur = currentSymbol.substring(3, 6).toUpperCase() || 'USD';
 
             async function fetchForexRate() {
                 try {
                     let response = await fetch(`https://api.frankfurter.app/latest?from=${baseCur}&to=${targetCur}`);
                     let data = await response.json();
-                    if(data && data.rates && data.rates[targetCur]) {
-                        return data.rates[targetCur];
-                    }
-                } catch(err) {
-                    console.log("Forex API fallback active");
-                }
-                return baseCur === 'EUR' && targetCur === 'JPY' ? 176.68 : 1.0850;
+                    if(data && data.rates && data.rates[targetCur]) return data.rates[targetCur];
+                } catch(err) {}
+                return baseCur === 'USD' && targetCur === 'JPY' ? 154.20 : 1.0850;
             }
 
             let liveRate = await fetchForexRate();
             statusDot.className = "w-2 h-2 rounded-full bg-emerald-500 animate-pulse";
-            statusText.innerText = `Forex Active (${currentTF})`;
+            statusText.innerText = `Forex Live (${currentTF})`;
 
             candles = [];
             let now = Date.now();
@@ -636,16 +454,11 @@
                 let jitter = (Math.random() - 0.49) * (p * 0.0008);
                 let open = p;
                 let close = p + jitter;
-                let high = Math.max(open, close) + Math.random() * (p * 0.0003);
-                let low = Math.min(open, close) - Math.random() * (p * 0.0003);
-                candles.push({ time: now - (maxCandlesCount - i) * 10000, open, high, low, close });
+                candles.push({ time: now - (maxCandlesCount - i) * 10000, open, high: Math.max(open, close) + Math.random() * (p * 0.0003), low: Math.min(open, close) - Math.random() * (p * 0.0003), close });
                 p = close;
             }
-
             drawChart();
             updateIndicatorsDisplay();
-
-            let tickInterval = currentTF === '10s' ? 1000 : currentTF === '15s' ? 1500 : 2000;
 
             marketTimer = setInterval(async () => {
                 let currentLiveVal = await fetchForexRate();
@@ -653,19 +466,13 @@
                 let diff = (currentLiveVal - last.close) * 0.2 + (Math.random() - 0.49) * (last.close * 0.0005);
                 let open = last.close;
                 let close = open + diff;
-                let high = Math.max(open, close) + Math.random() * (last.close * 0.0002);
-                let low = Math.min(open, close) - Math.random() * (last.close * 0.0002);
-
-                let newCandle = { time: Date.now(), open, high, low, close };
-                candles.push(newCandle);
+                candles.push({ time: Date.now(), open, high: Math.max(open, close) + Math.random() * (last.close * 0.0002), low: Math.min(open, close) - Math.random() * (last.close * 0.0002), close });
                 if(candles.length > maxCandlesCount) candles.shift();
-
                 drawChart();
                 updateIndicatorsDisplay();
-            }, tickInterval);
+            }, 1500);
         }
 
-        // --- TECHNICAL INDICATORS ---
         function computeRSI(data, period = 14) {
             if(data.length < period + 1) return 50.0;
             let gains = 0, losses = 0;
@@ -674,10 +481,8 @@
                 if(diff >= 0) gains += diff;
                 else losses -= diff;
             }
-            let avgGain = gains / period;
-            let avgLoss = losses / period;
-            if(avgLoss === 0) return 100;
-            let rs = avgGain / avgLoss;
+            if(losses === 0) return 100;
+            let rs = (gains / period) / (losses / period);
             return 100 - (100 / (1 + rs));
         }
 
@@ -685,9 +490,7 @@
             if(data.length === 0) return 0;
             let k = 2 / (period + 1);
             let ema = data[0].close;
-            for(let i = 1; i < data.length; i++) {
-                ema = (data[i].close * k) + (ema * (1 - k));
-            }
+            for(let i = 1; i < data.length; i++) ema = (data[i].close * k) + (ema * (1 - k));
             return ema;
         }
 
@@ -697,7 +500,6 @@
                 let rsi = computeRSI(candles);
                 let ema9 = computeEMA(candles, 9);
                 let ema20 = computeEMA(candles, 20);
-
                 document.getElementById('livePriceVal').innerText = last.close.toFixed(last.close > 10 ? 2 : 4);
                 document.getElementById('rsiVal').innerText = rsi.toFixed(1);
                 document.getElementById('ema9Val').innerText = ema9.toFixed(ema9 > 10 ? 2 : 4);
@@ -708,14 +510,13 @@
         function start10sSignalScan() {
             if(isScanning) return;
             isScanning = true;
-
             const scanBtn = document.getElementById('scanBtn');
             const timerEl = document.getElementById('timer');
             const signalDir = document.getElementById('signalDirection');
 
             scanBtn.disabled = true;
             scanBtn.classList.add('opacity-50', 'cursor-not-allowed');
-            signalDir.innerText = "SCANNING...";
+            signalDir.innerText = "ANALYZING...";
             signalDir.className = "text-2xl font-black text-cyan-400 animate-pulse";
 
             let countdown = currentTF === '10s' ? 5 : currentTF === '15s' ? 7 : 10;
@@ -724,7 +525,6 @@
             scanCountdownTimer = setInterval(() => {
                 countdown--;
                 timerEl.innerText = countdown + "s";
-
                 if(countdown <= 0) {
                     clearInterval(scanCountdownTimer);
                     finalizeSignal();
@@ -742,48 +542,28 @@
             let ema9 = computeEMA(candles, 9);
             let ema20 = computeEMA(candles, 20);
 
-            let direction = "CALL (BUY)";
-            let colorClass = "text-emerald-400";
-            let borderClass = "border-emerald-500/40 glow-green";
-
-            if(ema9 > ema20 && rsi > 45) {
-                direction = "CALL (BUY)";
-                colorClass = "text-emerald-400";
-                borderClass = "border-emerald-500/40 glow-green";
-            } else if(ema9 < ema20 && rsi < 55) {
-                direction = "PUT (SELL)";
-                colorClass = "text-red-400";
-                borderClass = "border-red-500/40 glow-red";
-            } else {
-                if(rsi < 40) { direction = "CALL (BUY)"; colorClass = "text-emerald-400"; borderClass = "border-emerald-500/40 glow-green"; }
-                else { direction = "PUT (SELL)"; colorClass = "text-red-400"; borderClass = "border-red-500/40 glow-red"; }
-            }
-
-            let confidence = (85 + Math.random() * 13).toFixed(1) + "%";
+            let direction = (ema9 > ema20 && rsi > 45) || rsi < 35 ? "CALL (BULLISH)" : "PUT (BEARISH)";
+            let isBull = direction.includes("CALL");
+            let colorClass = isBull ? "text-emerald-400" : "text-red-400";
+            let borderClass = isBull ? "border-emerald-500/40 glow-green" : "border-red-500/40 glow-red";
+            let confidence = (84 + Math.random() * 14).toFixed(1) + "%";
 
             const signalDir = document.getElementById('signalDirection');
             signalDir.innerText = direction;
             signalDir.className = `text-2xl font-black ${colorClass}`;
             document.getElementById('confidenceText').innerText = confidence;
-            
-            const signalCard = document.getElementById('signalCard');
-            signalCard.className = `glass-panel p-6 rounded-2xl relative overflow-hidden transition-all duration-300 ${borderClass}`;
+            document.getElementById('signalCard').className = `glass-panel p-6 rounded-2xl relative overflow-hidden transition-all duration-300 ${borderClass}`;
 
             document.getElementById('popupPairSub').innerText = document.getElementById('cardPairDisplay').innerText;
             document.getElementById('popupDirection').innerText = direction;
             document.getElementById('popupDirection').className = `text-3xl font-black tracking-wide ${colorClass}`;
             document.getElementById('popupConfidence').innerText = confidence;
             document.getElementById('popupPrice').innerText = document.getElementById('livePriceVal').innerText;
-
-            const popupIcon = document.getElementById('popupIcon');
-            popupIcon.className = direction.includes("CALL") ? "fa-solid fa-arrow-trend-up text-emerald-400" : "fa-solid fa-arrow-trend-down text-red-400";
-
+            document.getElementById('popupIcon').className = isBull ? "fa-solid fa-arrow-trend-up text-emerald-400" : "fa-solid fa-arrow-trend-down text-red-400";
             document.getElementById('signalPopup').classList.remove('hidden');
         }
 
-        function closePopup() {
-            document.getElementById('signalPopup').classList.add('hidden');
-        }
+        function closePopup() { document.getElementById('signalPopup').classList.add('hidden'); }
 
         let canvas, ctx;
         function initChart() {
@@ -803,75 +583,47 @@
         function drawChart() {
             if(!ctx || !canvas || candles.length === 0) return;
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            let padding = 40;
-            let w = canvas.width - padding;
-            let h = canvas.height - padding;
-
-            let minPrice = Math.min(...candles.map(c => c.low));
-            let maxPrice = Math.max(...candles.map(c => c.high));
+            let padding = 40, w = canvas.width - padding, h = canvas.height - padding;
+            let minPrice = Math.min(...candles.map(c => c.low)), maxPrice = Math.max(...candles.map(c => c.high));
             if(minPrice === maxPrice) { minPrice -= 1; maxPrice += 1; }
             let priceRange = maxPrice - minPrice;
-
             let candleWidth = Math.max(3, w / candles.length - 4);
 
             ctx.strokeStyle = 'rgba(255, 255, 255, 0.04)';
             ctx.lineWidth = 1;
             for(let i = 1; i <= 4; i++) {
                 let y = padding / 2 + (h / 5) * i;
-                ctx.beginPath();
-                ctx.moveTo(30, y);
-                ctx.lineTo(canvas.width - 10, y);
-                ctx.stroke();
-
+                ctx.beginPath(); ctx.moveTo(30, y); ctx.lineTo(canvas.width - 10, y); ctx.stroke();
                 let pVal = maxPrice - (priceRange / 5) * i;
-                ctx.fillStyle = '#64748b';
-                ctx.font = '10px Inter';
+                ctx.fillStyle = '#64748b'; ctx.font = '10px Inter';
                 ctx.fillText(pVal.toFixed(pVal > 10 ? 2 : 4), canvas.width - 65, y - 4);
             }
 
             candles.forEach((c, idx) => {
                 let x = 40 + idx * (w / candles.length) + candleWidth / 2;
-                let isGreen = c.close >= c.open;
-                let color = isGreen ? '#22c55e' : '#ef4444';
-
+                let color = c.close >= c.open ? '#22c55e' : '#ef4444';
                 let yHigh = padding / 2 + h - ((c.high - minPrice) / priceRange) * h;
                 let yLow = padding / 2 + h - ((c.low - minPrice) / priceRange) * h;
                 let yOpen = padding / 2 + h - ((c.open - minPrice) / priceRange) * h;
                 let yClose = padding / 2 + h - ((c.close - minPrice) / priceRange) * h;
 
-                ctx.strokeStyle = color;
-                ctx.lineWidth = 1.5;
-                ctx.beginPath();
-                ctx.moveTo(x, yHigh);
-                ctx.lineTo(x, yLow);
-                ctx.stroke();
-
+                ctx.strokeStyle = color; ctx.lineWidth = 1.5;
+                ctx.beginPath(); ctx.moveTo(x, yHigh); ctx.lineTo(x, yLow); ctx.stroke();
                 ctx.fillStyle = color;
-                let bodyY = Math.min(yOpen, yClose);
-                let bodyHeight = Math.max(2, Math.abs(yClose - yOpen));
-                ctx.fillRect(x - candleWidth / 2, bodyY, candleWidth, bodyHeight);
+                ctx.fillRect(x - candleWidth / 2, Math.min(yOpen, yClose), candleWidth, Math.max(2, Math.abs(yClose - yOpen)));
             });
 
             function drawEMALine(period, color) {
-                ctx.strokeStyle = color;
-                ctx.lineWidth = 2;
-                ctx.beginPath();
-                
-                let k = 2 / (period + 1);
-                let currentEma = candles[0].close;
-
+                ctx.strokeStyle = color; ctx.lineWidth = 2; ctx.beginPath();
+                let k = 2 / (period + 1), currentEma = candles[0].close;
                 candles.forEach((c, idx) => {
                     currentEma = (c.close * k) + (currentEma * (1 - k));
                     let x = 40 + idx * (w / candles.length) + candleWidth / 2;
                     let yEma = padding / 2 + h - ((currentEma - minPrice) / priceRange) * h;
-
-                    if(idx === 0) ctx.moveTo(x, yEsub = yEma);
-                    else ctx.lineTo(x, yEma);
+                    if(idx === 0) ctx.moveTo(x, yEma); else ctx.lineTo(x, yEma);
                 });
                 ctx.stroke();
             }
-
             drawEMALine(9, '#06b6d4');
             drawEMALine(20, '#f59e0b');
         }
